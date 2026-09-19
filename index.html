@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silen Linux</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Verdana, Tahoma, Arial, sans-serif;
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a { color: #1e5fb4; }
+        a:hover { color: #123a70; }
+
+        .topbar {
+            background: #1c2b3e;
+            border-bottom: 3px solid #2f6fd6;
+        }
+
+        .topbar .inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 14px 48px;
+        }
+
+        .topbar .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .topbar .logo-wrap img {
+            width: 46px;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .topbar .logo {
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: none;
+        }
+
+        .topbar .logo span { color: #77b3ff; }
+
+        .topbar nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .topbar nav a {
+            color: #c3d2e4;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .topbar nav a:hover { color: #fff; text-decoration: underline; }
+
+        .content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 36px 48px 60px;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #1c2b3e;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        code {
+            font-family: Consolas, Menlo, monospace;
+            font-size: 14px;
+            color: #2f6fd6;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #1c2b3e;
+            margin: 40px 0 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #d7dfe8;
+        }
+
+        ul {
+            margin: 0 0 14px 22px;
+        }
+
+        li {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .box {
+            border: 1px solid #d7dfe8;
+            border-left: 3px solid #2f6fd6;
+            padding: 14px 18px;
+            margin: 24px 0;
+            font-size: 14px;
+        }
+
+        .box p { margin: 0; }
+
+        .box b { color: #1c2b3e; }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #d7dfe8;
+        }
+
+        footer {
+            background: #1c2b3e;
+            color: #8aa0bd;
+            border-top: 3px solid #2f6fd6;
+            font-size: 12px;
+        }
+
+        footer .inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 18px 48px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        footer a { color: #a9c4e4; }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="inner">
+            <div class="logo-wrap">
+                <img src="silen-logo.png" alt="Silen logo">
+                <span class="logo">Silen <span>Linux</span></span>
+            </div>
+            <nav>
+                <a href="#about">about</a>
+                <a href="#why">why</a>
+                <a href="#contact">contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <h1>The Linux that stays out of your way.</h1>
+
+
+
+        <div class="box">
+            <p><b>Status: Working on it.</b> No ISO to download yet. When there is one,
+            it will show up right here.</p>
+        </div>
+
+        <h2 id="about">About</h2>
+        <h2 id="discord">Join the Discord!</h2>
+
+        <p>
+            Silen ships a <code>stage3</code> tarball on the install medium, in the
+            same spirit as Gentoo. The live environment is thin: busybox, glibc,
+            networking, git and curl. The whole system is the initramfs, so there is
+            nothing to install until you say so
+        </p>
+
+        <p>
+            The package manager, <code>spk</code>, is written in Rust. Packages are
+            pulled straight from a git-hosted repo
+        </p>
+
+        <h2 id="why">Why</h2>
+
+        <p>
+           Silen Linux is made to stay out of your way, its suppost to be stable while still maintaining newer software
+        </p>
+
+        <ul>
+            <li>fast boot</li>
+            <li>Simplicity Matters</li>
+            <li>updates only when something actually matters</li>
+            <li>nothing installed that wasn&rsquo;t picked on purpose</li>
+        </ul>
+
+        <table>
+            <tr>
+                <td>status</td>
+                <td>Working on it</td>
+            </tr>
+            <tr>
+                <td>kernel</td>
+                <td>7.2</td>
+            </tr>
+            <tr>
+                <td>download ISO</td>
+                <td>not yet</td>
+            </tr>
+        </table>
+
+        <h2 id="contact">Join the Discord for future updates</h2>
+
+        <p>
+            Questions or ideas? Join
+            <a href="https://discord.com/invite/WxbRRURcZ">Our Server</a>.
+        </p>
+
+    </div>
+
+    <footer>
+        <div class="inner">
+            <span>Silen Linux &middot; made by hand</span>
+            <span><a href="https://github.com/Cgtlpa/SilenLinux">github</a></span>
+        </div>
+    </footer>
+
+</body>
+</html>
