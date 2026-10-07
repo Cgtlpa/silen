@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Silen Linux</title>
 <meta name="description" content="Silen Linux is an independent, lightweight Linux distribution. Minimal live ISO, clean installed system, no bloat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,28 +30,47 @@
     <p><strong>Reliable by default. Powerful when you want it.</strong></p>
     <p>Silen Linux is an independent, lightweight distribution. It boots as a minimal live
     environment and installs a clean base system you build on top of &mdash; no bloat,
-    no forced desktop, full control. Version 1, kernel 6.18, OpenRC, x86_64 UEFI-only.</p>
+    no forced desktop, full control. The project ships its own ISO builder, live init,
+    offline installer, and package manager rather than remixing another distribution.</p>
 
     <h2>Specifications</h2>
     <table>
       <tr><th>Component</th><th>What Silen uses</th></tr>
-      <tr><td>Kernel</td><td>Linux 6.18</td></tr>
-      <tr><td>Init (installed system)</td><td>OpenRC</td></tr>
-      <tr><td>Live init</td><td>Custom BusyBox initramfs</td></tr>
-      <tr><td>Architecture</td><td>x86_64, UEFI only</td></tr>
-      <tr><td>Bootloader</td><td>GRUB2</td></tr>
+      <tr><td>Kernel</td><td>Linux 6.18 (ships on the ISO and as the <code>linux-6.18</code> package)</td></tr>
+      <tr><td>Init (installed system)</td><td>OpenRC with elogind</td></tr>
+      <tr><td>Live init</td><td>Custom BusyBox-based initramfs (<code>/init</code>)</td></tr>
+      <tr><td>Architecture</td><td>x86_64, UEFI only (legacy BIOS is refused)</td></tr>
+      <tr><td>Bootloader</td><td>GRUB2, two entries: <em>Silen Linux</em> and fallback <em>nomodeset</em></td></tr>
+      <tr><td>Base system</td><td>Prebuilt rootfs tarball extracted onto the target disk</td></tr>
       <tr><td>Package manager</td><td><code>spk</code> (<code>get</code> / <code>find</code> / <code>rm</code> / <code>update</code> / <code>list</code>)</td></tr>
-      <tr><td>Live networking</td><td>iwd + <code>iwctl</code></td></tr>
+      <tr><td>Live networking</td><td>iwd + <code>iwctl</code> over D-Bus</td></tr>
+      <tr><td>Filesystems</td><td>ext4, btrfs, xfs, vfat, exfat, ntfs3, squashfs, isofs, fuse</td></tr>
       <tr><td>License</td><td>AGPLv3</td></tr>
     </table>
 
+    <h2>Hardware support</h2>
+    <p>The live ISO carries a broad driver set so it boots on real hardware, not just VMs:</p>
+    <ul>
+      <li><strong>Storage:</strong> AHCI, NVMe, virtio-blk/scsi, MMC/SDHCI, USB storage and UAS.</li>
+      <li><strong>Wired + tethering:</strong> e1000/e1000e, r8169, igb, r8152, alx, cdc_ether, rndis_host, and more.</li>
+      <li><strong>Wi-Fi:</strong> Intel iwlwifi, Atheros ath9k/10k/11k/12k, MediaTek mt76/mt79xx,
+      Realtek rtw88/rtw89/rtlwifi, Broadcom brcmfmac/b43, plus Marvell, Ralink, and TI chipsets.</li>
+      <li><strong>Graphics:</strong> in-tree kernel drivers (amdgpu, i915, xe, nouveau, radeon)
+      with firmware merged into both the live boot and offline installs, so the display
+      modesets instead of black-screening. NVIDIA cards fall back to nouveau; the proprietary
+      driver installs later via <code>spk get nvidia-drivers</code>.</li>
+    </ul>
+
     <h2>Installation</h2>
-    <p>The installer works fully offline and installs the base system only.
-    Extras (firmware, drivers, window manager) come after reboot via <code>spk</code>.</p>
+    <p>The installer is a text-menu (whiptail) flow that works fully offline and installs the
+    base system only. It finds the install medium automatically, including ISO-file boot via Ventoy.</p>
     <ol>
       <li>Write the ISO to USB (<code>dd</code>; Ventoy also works) and boot in <strong>UEFI mode</strong>.</li>
-      <li>Run the installer: pick disk (it will be wiped &rarr; GPT + ESP + root), filesystem (ext4/btrfs), hostname, users.</li>
-      <li>Reboot, then extend the system:</li>
+      <li>Choose Install. The disk is wiped and laid out as GPT: a 1&nbsp;MiB&ndash;513&nbsp;MiB EFI
+      partition plus root (ext4 or btrfs).</li>
+      <li>Set hostname (default <code>silen</code>), root password, an optional user,
+      locale, keymap, timezone, and swapfile.</li>
+      <li>Reboot into the installed system, then extend it:</li>
     </ol>
 <pre><code>spk get linux-firmware    # wifi + device firmware
 spk get mesa              # OpenGL / Vulkan graphics stack
@@ -56,18 +78,29 @@ spk get instantwm         # window manager (X11/Wayland)
 spk get sddm              # login screen (or: ly)</code></pre>
 
     <h2>Package management</h2>
-    <p><code>spk</code> installs system packages (kernels, drivers, firmware, login managers)
-    straight into <code>/</code>, and keeps leaf applications isolated with shims
-    in <code>/usr/local/bin</code>. Browse the
-    <a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">package repository</a>.</p>
+    <p><code>spk</code> is a small single-binary manager. System packages &mdash; kernels, firmware,
+    drivers, login managers &mdash; install straight into <code>/</code>, while leaf applications
+    stay isolated with shims in <code>/usr/local/bin</code>. A few real examples from the
+    <a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">package repository</a>:</p>
+<pre><code>spk get linux-6.18        # precompiled Silen kernel + module tree
+spk get nvidia-drivers    # proprietary NVIDIA driver, guided install
+spk get fastfetch vim git htop tmux   # everyday tools</code></pre>
 
     <h2>Diagnostics</h2>
-    <p>Built-in tools: <code>silen-wifi-check</code> for wireless issues,
-    <code>silen-nvidia-check</code> for GPU/driver issues. <code>silenfetch</code>
-    prints the Silen logo and system info (needs <code>spk get fastfetch</code>).</p>
+    <p>Two tools ship for debugging: <code>silen-wifi-check</code> dumps wireless state
+    (modules, interfaces, rfkill, dmesg, iwd) to a log, and <code>silen-nvidia-check</code>
+    covers GPU/driver state. <code>silenfetch</code> prints the Silen logo and system info
+    (needs <code>spk get fastfetch</code> first).</p>
   </article>
 
   <aside class="sidebar">
+    <div class="box">
+      <h3>Release</h3>
+      <div class="body">
+        <strong>v1</strong> &middot; kernel 6.18.54<br>
+        <span class="muted">x86_64 &middot; UEFI &middot; OpenRC</span>
+      </div>
+    </div>
     <div class="box">
       <h3>Get Silen Linux</h3>
       <div class="body">

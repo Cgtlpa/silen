@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download — Silen Linux</title>
 <meta name="description" content="Download Silen Linux ISO images: standard and NVIDIA variants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -66,6 +69,22 @@ sudo dd if=silen-linux.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></
 spk get linux-firmware # wifi + device firmware
 spk get fastfetch      # needed by silenfetch below
 silenfetch             # logo + system info</code></pre>
+
+    <h2>Useful first packages</h2>
+    <p>Real packages from the repository (install with <code>spk get &lt;name&gt;</code>):</p>
+    <table>
+      <tr><th>Package</th><th>What it is</th></tr>
+      <tr><td><code>linux-firmware</code></td><td>Wi-Fi and device firmware collection</td></tr>
+      <tr><td><code>linux-6.18</code></td><td>Precompiled Silen kernel 6.18.54 with module tree</td></tr>
+      <tr><td><code>mesa</code></td><td>OpenGL/Vulkan/EGL stack with Intel/AMD drivers</td></tr>
+      <tr><td><code>nvidia-drivers</code></td><td>Proprietary NVIDIA driver installer with guided postinstall</td></tr>
+      <tr><td><code>instantwm</code></td><td>Hybrid tiling window manager (X11/Wayland)</td></tr>
+      <tr><td><code>sddm</code> / <code>ly</code> / <code>emptty</code> / <code>xdm</code></td><td>Login screens &mdash; graphical (sddm), TUI (ly), minimal CLI (emptty, xdm)</td></tr>
+      <tr><td><code>greetd</code> + <code>tuigreet</code></td><td>Login daemon with TUI greeter</td></tr>
+      <tr><td><code>alsa-utils</code></td><td>Audio tools: aplay, arecord, amixer</td></tr>
+      <tr><td><code>fastfetch</code> / <code>git</code> / <code>vim</code></td><td>System info, version control, editor</td></tr>
+      <tr><td><code>htop</code> / <code>tmux</code> / <code>openssh</code></td><td>Process viewer, terminal multiplexer, secure shell</td></tr>
+    </table>
   </article>
 
   <aside class="sidebar">
