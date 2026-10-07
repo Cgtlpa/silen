@@ -28,26 +28,31 @@
   <article>
     <h1>Download</h1>
     <p>Current release: <strong>v1</strong>, kernel <strong>6.18.54</strong>.
-    All ISOs and checksums are published on the
+    ISOs are hosted on Hugging Face (GitHub caps files at 2&nbsp;GB).
+    Older builds live on the
     <a href="https://github.com/Cgtlpa/Silen-Linux/releases" target="_blank" rel="noopener">Releases page</a>.</p>
 
     <h2>ISO images</h2>
     <table>
       <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
       <tr>
-        <td><a href="https://github.com/Cgtlpa/Silen-Linux/releases" target="_blank" rel="noopener">Standard</a></td>
-        <td><code>silen-linux.iso</code></td>
+        <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux.iso">Standard</a></td>
+        <td><code>silen-linux.iso</code> (1.8&nbsp;GB)</td>
         <td>Recommended for most PCs. Open drivers with in-tree GPU firmware
         (amdgpu, i915, xe, nouveau, radeon). NVIDIA cards work via nouveau;
         proprietary drivers install later with <code>spk get nvidia-drivers</code>.</td>
       </tr>
       <tr>
-        <td><a href="https://github.com/Cgtlpa/Silen-Linux/releases" target="_blank" rel="noopener">NVIDIA</a></td>
-        <td><code>silen-linux-nvidia.iso</code></td>
+        <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-nvidia.iso">NVIDIA</a></td>
+        <td><code>silen-linux-nvidia.iso</code> (2.2&nbsp;GB)</td>
         <td>Same base system. Installs the proprietary NVIDIA driver automatically
         when an NVIDIA GPU is detected (skipped otherwise, nouveau stays active).</td>
       </tr>
     </table>
+
+    <h2>Checksums</h2>
+<pre><code>25dc4af5845dd66d7768a26da234ea19b46be16032563c5c0fb431a2418510c3  silen-linux.iso
+6f3e18bdf5dcbe6f1549851a77528604673075a9a5bf4ca0d6725263bc26eae3  silen-linux-nvidia.iso</code></pre>
 
     <h2>Requirements</h2>
     <ul>
@@ -57,7 +62,7 @@
     </ul>
 
     <h2>Write to USB</h2>
-<pre><code># verify the checksum first (see Releases page)
+<pre><code># verify the checksum first (see Checksums above)
 sha256sum silen-linux.iso
 
 # write to USB (replace sdX with your stick!)
