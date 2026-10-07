@@ -99,6 +99,19 @@ pre.logo .l2 { color: var(--purple); }
 }
 .btn-dl:hover { background: var(--purple); color: #10141a; }
 
+/* site search */
+.search { display: flex; }
+.search input[type="text"] {
+  flex: 1; min-width: 0;
+  background: #0b0d11; border: 1px solid var(--border); color: var(--text);
+  padding: 6px 8px; font-family: inherit; font-size: 13px;
+}
+.search button {
+  background: var(--accent); border: 1px solid var(--accent); color: #10141a;
+  font-weight: 700; padding: 6px 10px; cursor: pointer; font-family: inherit;
+}
+.search button:hover { background: var(--purple); border-color: var(--purple); }
+
 /* Footer */
 footer.site { background: var(--footer-bg); border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; margin-top: 30px; }
 footer.site .wrap {

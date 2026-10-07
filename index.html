@@ -62,7 +62,7 @@
     no forced desktop, full control. The project ships its own ISO builder, live init,
     offline installer, and package manager rather than remixing another distribution.</p>
 
-    <h2>specs</h2>
+    <h2 id="specs">specs</h2>
     <table>
       <tr><th>Component</th><th>What Silen uses</th></tr>
       <tr><td>Kernel</td><td>Linux 6.18 (ships on the ISO and as the <code>linux-6.18</code> package)</td></tr>
@@ -77,7 +77,7 @@
       <tr><td>License</td><td>AGPLv3</td></tr>
     </table>
 
-    <h2>hardware</h2>
+    <h2 id="hardware">hardware</h2>
     <p>The live ISO carries a broad driver set so it boots on real hardware, not just VMs:</p>
     <ul>
       <li><strong>Storage:</strong> AHCI, NVMe, virtio-blk/scsi, MMC/SDHCI, USB storage and UAS.</li>
@@ -90,7 +90,7 @@
       driver installs later via <code>spk get nvidia-drivers</code>.</li>
     </ul>
 
-    <h2>install</h2>
+    <h2 id="install">install</h2>
     <p>The installer is a text-menu (whiptail) flow that works fully offline and installs the
     base system only. It finds the install medium automatically, including ISO-file boot via Ventoy.</p>
     <ol>
@@ -106,7 +106,7 @@ spk get mesa              # OpenGL / Vulkan graphics stack
 spk get instantwm         # window manager (X11/Wayland)
 spk get sddm              # login screen (or: ly)</code></pre>
 
-    <h2>packages</h2>
+    <h2 id="packages">packages</h2>
     <p><code>spk</code> is a small single-binary manager. System packages &mdash; kernels, firmware,
     drivers, login managers &mdash; install straight into <code>/</code>, while leaf applications
     stay isolated with shims in <code>/usr/local/bin</code>. A few real examples from the
@@ -115,7 +115,7 @@ spk get sddm              # login screen (or: ly)</code></pre>
 spk get nvidia-drivers    # proprietary NVIDIA driver, guided install
 spk get fastfetch vim git htop tmux   # everyday tools</code></pre>
 
-    <h2>diagnostics</h2>
+    <h2 id="diagnostics">diagnostics</h2>
     <p>Two tools ship for debugging: <code>silen-wifi-check</code> dumps wireless state
     (modules, interfaces, rfkill, dmesg, iwd) to a log, and <code>silen-nvidia-check</code>
     covers GPU/driver state. <code>silenfetch</code> prints the Silen logo and system info
@@ -138,12 +138,34 @@ spk get fastfetch vim git htop tmux   # everyday tools</code></pre>
       </div>
     </div>
     <div class="box">
-      <h3>Resources</h3>
+      <h3>Search</h3>
+      <div class="body">
+        <form class="search" action="https://duckduckgo.com/" method="get" onsubmit="this.q.value='site:cgtlpa.github.io/silen-website '+this.s.value;return true;">
+          <input type="hidden" name="q" value="">
+          <input type="text" name="s" placeholder="Search this site">
+          <button type="submit">Go</button>
+        </form>
+      </div>
+    </div>
+    <div class="box">
+      <h3>Documentation</h3>
       <div class="body">
         <ul>
-          <li><a href="https://huggingface.co/datasets/vgzz/silen-isos" target="_blank" rel="noopener">ISO files</a></li>
-          <li><a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">Package repository</a></li>
+          <li><a href="index.html#specs">Specifications</a></li>
+          <li><a href="index.html#hardware">Hardware support</a></li>
+          <li><a href="index.html#install">Installation</a></li>
+          <li><a href="index.html#packages">Package management</a></li>
+          <li><a href="download.html">Downloading</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="box">
+      <h3>Community</h3>
+      <div class="body">
+        <ul>
           <li><a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a></li>
+          <li><a href="https://github.com/Cgtlpa/Silen-Linux" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">Package repository</a></li>
         </ul>
       </div>
     </div>
