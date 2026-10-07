@@ -12,4 +12,4 @@ No build step. Open `index.html` or serve the folder:
 python3 -m http.server -d . 8080
 ```
 
-ISO links point at [SilenLinux Releases](https://github.com/Cgtlpa/SilenLinux/releases).
+ISO links point at [Silen-Linux Releases](https://github.com/Cgtlpa/Silen-Linux/releases).
