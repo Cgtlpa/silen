@@ -50,7 +50,17 @@ header.site { background: var(--box); border-bottom: 1px solid var(--border); }
 header.site .wrap {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap;
+  max-width: none; padding-left: 22px; padding-right: 22px;
 }
+
+/* ASCII logo */
+pre.logo {
+  font-size: 12.5px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+pre.logo .l1 { color: var(--blue); }
+pre.logo .l2 { color: #555555; }
 .brand { font-size: 22px; font-weight: 700; color: var(--text); text-decoration: none; }
 .brand span { color: var(--blue); font-weight: 400; }
 nav.main a { margin-left: 18px; font-size: 14px; text-decoration: none; }
