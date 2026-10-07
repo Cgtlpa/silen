@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Downloads — Silen Linux</title>
+<meta name="description" content="Download Silen Linux ISO images: standard and NVIDIA variants.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">Silen Linux</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="download.html" class="active">Downloads</a>
+      <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">GitHub</a>
+      <a href="#isos" class="btn btn-small">Get ISO</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="container">
+      <p class="eyebrow">Downloads</p>
+      <h1>Get <span class="gradient-text">Silen Linux</span></h1>
+      <p class="lede">Pick the image that matches your GPU. Both install the same clean base system, offline, in minutes.</p>
+    </div>
+  </section>
+
+  <section class="section" id="isos">
+    <div class="container">
+      <div class="iso-grid">
+
+        <div class="card iso-card">
+          <p class="pill">Recommended · Most PCs</p>
+          <h2>Standard</h2>
+          <p class="iso-file"><code>silen-linux.iso</code></p>
+          <ul class="iso-list">
+            <li>Intel / AMD / open drivers (amdgpu, i915, xe, nouveau, radeon firmware included)</li>
+            <li>Linux 6.18 · OpenRC · x86_64 UEFI</li>
+            <li>Offline installer, no network required</li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="https://github.com/Cgtlpa/SilenLinux/releases" target="_blank" rel="noopener">Download Standard ISO</a>
+          <p class="fine">Get NVIDIA drivers after install: <code>spk get nvidia-drivers</code></p>
+        </div>
+
+        <div class="card iso-card">
+          <p class="pill pill-purple">NVIDIA GPUs</p>
+          <h2>NVIDIA</h2>
+          <p class="iso-file"><code>silen-linux-nvidia.iso</code></p>
+          <ul class="iso-list">
+            <li>Prebuilt proprietary driver kmods for the ISO kernel</li>
+            <li>Auto-installs on NVIDIA GPUs, no on-target compile</li>
+            <li>Same base system as Standard otherwise</li>
+          </ul>
+          <a class="btn btn-secondary btn-block" href="https://github.com/Cgtlpa/SilenLinux/releases" target="_blank" rel="noopener">Download NVIDIA ISO</a>
+          <p class="fine">Falls back to compile if prebuilt kmods are missing</p>
+        </div>
+
+      </div>
+
+      <div class="release-note">
+        <strong>Looking for a version?</strong>
+        All ISOs, checksums, and changelogs live on the
+        <a href="https://github.com/Cgtlpa/SilenLinux/releases" target="_blank" rel="noopener">SilenLinux Releases page</a>.
+        Current: <strong>v1 · kernel 6.18.54</strong>.
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container two-col">
+      <div>
+        <h2>Requirements</h2>
+        <ul class="check-list">
+          <li>64-bit (x86_64) PC with <strong>UEFI boot</strong> — legacy BIOS is refused by the installer</li>
+          <li>USB stick (or Ventoy) + a disk the installer may wipe</li>
+          <li>GPT layout created automatically: 1 MiB–513 MiB ESP + root</li>
+          <li>Root filesystems: ext4, btrfs, vfat</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Flash it</h2>
+        <div class="code-block">
+<pre><code># check checksum first (see Releases page)
+sha256sum silen-linux.iso
+
+# write to USB (replace sdX with your stick!)
+sudo dd if=silen-linux.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
+        </div>
+        <p class="fine">Ventoy ISO-file boot is also detected automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>After install</h2>
+      <div class="code-block">
+<pre><code>iwctl                  # configure Wi-Fi if needed
+silenfetch             # show the Silen logo + system info
+spk get linux-firmware # firmware, drivers, desktops…</code></pre>
+      </div>
+      <p><a href="index.html">&larr; Back to home</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>Silen Linux · AGPLv3</span>
+    <span class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">Source</a>
+      <a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silen Linux — Reliable by default. Powerful when you want it.</title>
+<meta name="description" content="Silen Linux is an independent, lightweight Linux distribution. Minimal live ISO, clean installed system, no bloat.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">Silen Linux</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="download.html">Downloads</a>
+      <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">GitHub</a>
+      <a href="download.html" class="btn btn-small">Get ISO</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Independent &middot; Lightweight &middot; x86_64 UEFI</p>
+      <h1>Reliable by default.<br><span class="gradient-text">Powerful when you want it.</span></h1>
+      <p class="lede">Silen Linux boots as a minimal live environment and installs a clean base system you build on top of — no bloat, no forced desktop, full control.</p>
+      <div class="hero-actions">
+        <a href="download.html" class="btn btn-primary">Download ISO</a>
+        <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener" class="btn btn-ghost">View source</a>
+      </div>
+      <div class="hero-meta">
+        <span><strong>v1</strong> &middot; Kernel 6.18</span>
+        <span class="dot"></span>
+        <span>OpenRC</span>
+        <span class="dot"></span>
+        <span>AGPLv3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick specs -->
+  <section class="section">
+    <div class="container">
+      <div class="spec-grid">
+        <div class="spec"><span class="spec-label">Kernel</span><span class="spec-value">Linux 6.18</span></div>
+        <div class="spec"><span class="spec-label">Init</span><span class="spec-value">OpenRC</span></div>
+        <div class="spec"><span class="spec-label">Arch</span><span class="spec-value">x86_64 · UEFI</span></div>
+        <div class="spec"><span class="spec-label">Packages</span><span class="spec-value">spk</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <h2>Why Silen?</h2>
+      <p class="section-sub">A small system that stays out of your way.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Independent</h3>
+          <p>Own ISO builder, live init, offline installer, and package manager. No upstream respin — Silen is its own distro.</p>
+        </div>
+        <div class="card">
+          <h3>Minimal by design</h3>
+          <p>BusyBox live RAM root, whiptail installer, clean base install. You add only what you need — nothing pre-forced.</p>
+        </div>
+        <div class="card">
+          <h3>Hardware ready</h3>
+          <p>Storage, wired, USB tethering, broad Wi-Fi coverage, and GPU firmware merged in so live boot modesets instead of black-screening.</p>
+        </div>
+        <div class="card">
+          <h3>Offline installer</h3>
+          <p>Full base install with no network needed. GPT + ESP + root, ext4 / btrfs / vfat, hostname, users, timezone — done in minutes.</p>
+        </div>
+        <div class="card">
+          <h3><code>spk</code> packages</h3>
+          <p>One Rust tool: <code>spk get / find / rm</code>. System packages go to <code>/</code>, leaf apps stay isolated with shims.</p>
+        </div>
+        <div class="card">
+          <h3>Diagnostics built in</h3>
+          <p><code>silen-wifi-check</code> and <code>silen-nvidia-check</code> dump everything needed to debug wireless and GPU issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install flow -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Install in minutes</h2>
+      <p class="section-sub">Base only, offline. Desktops and drivers come after reboot via <code>spk</code>.</p>
+      <ol class="steps">
+        <li><strong>Flash the ISO</strong> — <code>dd</code> to USB, or boot it via Ventoy.</li>
+        <li><strong>Boot UEFI</strong> — pick <em>Silen Linux</em> (or fallback <em>nomodeset</em>).</li>
+        <li><strong>Run the installer</strong> — pick disk, filesystem, hostname, users.</li>
+        <li><strong>Reboot, then extend</strong> — <code>spk get linux-firmware</code>, GPU drivers, your desktop of choice.</li>
+      </ol>
+      <div class="code-block">
+<pre><code># after first reboot, with network:
+spk get linux-firmware
+spk get plasma-desktop   # or gnome, xfce, i3, sway …
+spk get mesa xorg-server xinit dwm   # lightweight X11 path</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="container cta-box">
+      <h2>Try it live. Install it clean.</h2>
+      <p>One ISO, two entries, zero bloat. Grab the latest build and boot it.</p>
+      <a href="download.html" class="btn btn-primary">Go to downloads</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>Silen Linux · AGPLv3</span>
+    <span class="footer-links">
+      <a href="download.html">Downloads</a>
+      <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">Source</a>
+      <a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
