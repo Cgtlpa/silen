@@ -7,7 +7,7 @@
 <meta name="description" content="Silen Linux is an independent, lightweight Linux distribution. Minimal live ISO, clean installed system, no bloat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,12 +26,9 @@
 
 <div class="wrap layout">
   <article>
-    <h1>Silen Linux</h1>
-    <p><strong>Reliable by default. Powerful when you want it.</strong></p>
-    <p>Silen Linux is an independent, lightweight distribution. It boots as a minimal live
-    environment and installs a clean base system you build on top of &mdash; no bloat,
-    no forced desktop, full control. The project ships its own ISO builder, live init,
-    offline installer, and package manager rather than remixing another distribution.</p>
+    <div class="term">
+      <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">live@silen — silenfetch</span></div>
+      <div class="term-body">
 <pre class="logo"><span class="l1">            .-nn-=_+ss.=n+:==-n+-s</span>
 <span class="l1">       ;_s-.sel.esseSSne=ss*sSsSsn;+n:.</span>
 <span class="l1">     ;=leiissssses.:i*s.--+s+s:_.s++.sn-n</span>
@@ -46,8 +43,26 @@
 <span class="l1">     s+n_;+-:n;n._=s.-nsllnSiin+sSsSSi:++</span>
 <span class="l1">       s+++siSiSls=lnSnsSsniSslel*:-+s.</span>
 <span class="l1">            .s.+-:s:.=;;:;n:._s-:s</span></pre>
+        <div class="term-info">
+          <p class="prompt">live@silen:~$ silenfetch</p>
+          <dl>
+            <div><dt>OS</dt><dd>Silen Linux v1 x86_64</dd></div>
+            <div><dt>Kernel</dt><dd>6.18.54-silen</dd></div>
+            <div><dt>Init</dt><dd>OpenRC</dd></div>
+            <div><dt>Boot</dt><dd>GRUB2 (UEFI)</dd></div>
+            <div><dt>Shell</dt><dd>bash</dd></div>
+            <div><dt>Packages</dt><dd>spk</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <h1 class="tagline">Reliable by default. Powerful when you want it.</h1>
+    <p>Silen Linux is an independent, lightweight distribution. It boots as a minimal live
+    environment and installs a clean base system you build on top of &mdash; no bloat,
+    no forced desktop, full control. The project ships its own ISO builder, live init,
+    offline installer, and package manager rather than remixing another distribution.</p>
 
-    <h2>Specifications</h2>
+    <h2>specs</h2>
     <table>
       <tr><th>Component</th><th>What Silen uses</th></tr>
       <tr><td>Kernel</td><td>Linux 6.18 (ships on the ISO and as the <code>linux-6.18</code> package)</td></tr>
@@ -62,7 +77,7 @@
       <tr><td>License</td><td>AGPLv3</td></tr>
     </table>
 
-    <h2>Hardware support</h2>
+    <h2>hardware</h2>
     <p>The live ISO carries a broad driver set so it boots on real hardware, not just VMs:</p>
     <ul>
       <li><strong>Storage:</strong> AHCI, NVMe, virtio-blk/scsi, MMC/SDHCI, USB storage and UAS.</li>
@@ -75,7 +90,7 @@
       driver installs later via <code>spk get nvidia-drivers</code>.</li>
     </ul>
 
-    <h2>Installation</h2>
+    <h2>install</h2>
     <p>The installer is a text-menu (whiptail) flow that works fully offline and installs the
     base system only. It finds the install medium automatically, including ISO-file boot via Ventoy.</p>
     <ol>
@@ -91,7 +106,7 @@ spk get mesa              # OpenGL / Vulkan graphics stack
 spk get instantwm         # window manager (X11/Wayland)
 spk get sddm              # login screen (or: ly)</code></pre>
 
-    <h2>Package management</h2>
+    <h2>packages</h2>
     <p><code>spk</code> is a small single-binary manager. System packages &mdash; kernels, firmware,
     drivers, login managers &mdash; install straight into <code>/</code>, while leaf applications
     stay isolated with shims in <code>/usr/local/bin</code>. A few real examples from the
@@ -100,7 +115,7 @@ spk get sddm              # login screen (or: ly)</code></pre>
 spk get nvidia-drivers    # proprietary NVIDIA driver, guided install
 spk get fastfetch vim git htop tmux   # everyday tools</code></pre>
 
-    <h2>Diagnostics</h2>
+    <h2>diagnostics</h2>
     <p>Two tools ship for debugging: <code>silen-wifi-check</code> dumps wireless state
     (modules, interfaces, rfkill, dmesg, iwd) to a log, and <code>silen-nvidia-check</code>
     covers GPU/driver state. <code>silenfetch</code> prints the Silen logo and system info

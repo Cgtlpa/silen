@@ -7,7 +7,7 @@
 <meta name="description" content="Download Silen Linux ISO images: standard and NVIDIA variants.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,11 +26,11 @@
 
 <div class="wrap layout">
   <article>
-    <h1>Download</h1>
+    <h1>download</h1>
     <p>Current release: <strong>v1</strong>, kernel <strong>6.18.54</strong>.
     ISOs are hosted on Hugging Face (GitHub caps files at 2&nbsp;GB).</p>
 
-    <h2>ISO images</h2>
+    <h2>images</h2>
     <table>
       <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
       <tr>
@@ -48,18 +48,18 @@
       </tr>
     </table>
 
-    <h2>Checksums</h2>
+    <h2>checksums</h2>
 <pre><code>25dc4af5845dd66d7768a26da234ea19b46be16032563c5c0fb431a2418510c3  silen-linux.iso
 6f3e18bdf5dcbe6f1549851a77528604673075a9a5bf4ca0d6725263bc26eae3  silen-linux-nvidia.iso</code></pre>
 
-    <h2>Requirements</h2>
+    <h2>requirements</h2>
     <ul>
       <li>64-bit (x86_64) PC with <strong>UEFI boot</strong> &mdash; legacy BIOS is refused by the installer.</li>
       <li>A USB stick and a disk the installer may wipe (GPT: ESP + root).</li>
       <li>Root filesystems: ext4, btrfs. No network needed for the base install.</li>
     </ul>
 
-    <h2>Write to USB</h2>
+    <h2>write to usb</h2>
 <pre><code># verify the checksum first (see Checksums above)
 sha256sum silen-linux.iso
 
@@ -67,13 +67,13 @@ sha256sum silen-linux.iso
 sudo dd if=silen-linux.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
     <p class="muted">Ventoy ISO-file boot is detected automatically.</p>
 
-    <h2>After installing</h2>
+    <h2>first boot</h2>
 <pre><code>iwctl                  # configure Wi-Fi if needed
 spk get linux-firmware # wifi + device firmware
 spk get fastfetch      # needed by silenfetch below
 silenfetch             # logo + system info</code></pre>
 
-    <h2>Useful first packages</h2>
+    <h2>first packages</h2>
     <p>Real packages from the repository (install with <code>spk get &lt;name&gt;</code>):</p>
     <table>
       <tr><th>Package</th><th>What it is</th></tr>
