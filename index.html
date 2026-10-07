@@ -95,18 +95,19 @@
   <section class="section section-alt">
     <div class="container">
       <h2>Install in minutes</h2>
-      <p class="section-sub">Base only, offline. Desktops and drivers come after reboot via <code>spk</code>.</p>
+      <p class="section-sub">Base only, offline. Firmware, drivers, and extras come after reboot via <code>spk</code>.</p>
       <ol class="steps">
         <li><strong>Flash the ISO</strong> — <code>dd</code> to USB, or boot it via Ventoy.</li>
         <li><strong>Boot UEFI</strong> — pick <em>Silen Linux</em> (or fallback <em>nomodeset</em>).</li>
         <li><strong>Run the installer</strong> — pick disk, filesystem, hostname, users.</li>
-        <li><strong>Reboot, then extend</strong> — <code>spk get linux-firmware</code>, GPU drivers, your desktop of choice.</li>
+        <li><strong>Reboot, then extend</strong> — firmware, graphics, and a desktop via <code>spk</code>.</li>
       </ol>
       <div class="code-block">
 <pre><code># after first reboot, with network:
-spk get linux-firmware
-spk get plasma-desktop   # or gnome, xfce, i3, sway …
-spk get mesa xorg-server xinit dwm   # lightweight X11 path</code></pre>
+spk get linux-firmware    # wifi + device firmware
+spk get mesa              # OpenGL / Vulkan graphics stack
+spk get instantwm         # window manager (X11/Wayland)
+spk get sddm              # login screen (or: ly)</code></pre>
       </div>
     </div>
   </section>
