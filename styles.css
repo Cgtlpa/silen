@@ -136,5 +136,5 @@ h2::before { content: "$ "; color: var(--accent); }
 .term { background: #0b0d11; border: 3px double var(--border); margin: 4px 0 16px; }
 .term-bar { padding: 5px 10px; border-bottom: 1px solid var(--border); }
 .term-title { font-size: 12.5px; color: var(--muted); font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace; }
-.term-body { display: flex; gap: 22px; padding: 14px 16px; flex-wrap: wrap; align-items: flex-start; }
-.term-body pre.logo { margin: 0; border: none; background: none; padding: 0; font-size: 10px; }
+.term-body { display: flex; gap: 22px; padding: 10px 12px; flex-wrap: wrap; align-items: flex-start; }
+.term-body pre.logo { margin: 0; border: none; background: none; padding: 0; font-size: 8px; }
