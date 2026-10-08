@@ -49,7 +49,7 @@ pre {
 }
 pre code { background: none; border: none; padding: 0; }
 
-.wrap { max-width: 960px; margin: 0 auto; padding: 0 15px; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 22px; }
 
 /* Header */
 header.site { background: var(--box); border-bottom: 1px solid var(--border); }
@@ -65,7 +65,7 @@ nav.main a { margin-left: 18px; font-size: 14px; text-decoration: none; }
 nav.main a:hover { text-decoration: underline; }
 
 /* Layout: content + sidebar */
-.layout { display: grid; grid-template-columns: 1fr 235px; gap: 25px; padding-top: 20px; }
+.layout { display: grid; grid-template-columns: 1fr 270px; gap: 30px; padding-top: 20px; }
 
 h1 { font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace; font-size: 21px; margin: 0 0 8px; }
 h2 { font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace; font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 4px; margin: 26px 0 10px; }
