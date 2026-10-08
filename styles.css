@@ -65,7 +65,7 @@ nav.main a { margin-left: 18px; font-size: 14px; text-decoration: none; }
 nav.main a:hover { text-decoration: underline; }
 
 /* Layout: content + sidebar */
-.layout { display: grid; grid-template-columns: 1fr 270px; gap: 30px; padding-top: 20px; }
+.layout { display: grid; grid-template-columns: 210px 1fr 270px; gap: 24px; padding-top: 20px; }
 
 h1 { font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace; font-size: 21px; margin: 0 0 8px; }
 h2 { font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace; font-size: 16px; border-bottom: 1px solid var(--border); padding-bottom: 4px; margin: 26px 0 10px; }
@@ -88,11 +88,11 @@ pre.logo {
 pre.logo .l1 { color: var(--accent); }
 pre.logo .l2 { color: var(--purple); }
 
-/* Sidebar boxes */
-.sidebar .box { background: var(--box); border: 1px solid var(--border); margin-bottom: 15px; }
-.sidebar .box h3 { margin: 0; padding: 6px 10px; background: var(--accent-tint); border-bottom: 1px solid var(--border); font-size: 14px; color: var(--accent); }
-.sidebar .box .body { padding: 10px; font-size: 13.5px; }
-.sidebar .box ul { margin: 0; padding-left: 18px; }
+/* Sidebar + contents boxes */
+.sidebar .box, .toc .box { background: var(--box); border: 1px solid var(--border); margin-bottom: 15px; }
+.sidebar .box h3, .toc .box h3 { margin: 0; padding: 6px 10px; background: var(--accent-tint); border-bottom: 1px solid var(--border); font-size: 14px; color: var(--accent); }
+.sidebar .box .body, .toc .box .body { padding: 10px; font-size: 13.5px; }
+.sidebar .box ul, .toc .box ul { margin: 0; padding-left: 18px; }
 .btn-dl {
   display: block; text-align: center; background: var(--accent); color: #10141a;
   padding: 8px; text-decoration: none; font-weight: 700;
@@ -124,7 +124,7 @@ footer.site li { margin-bottom: 3px; }
 footer.site a { color: #c3c9d4; text-decoration: none; }
 footer.site a:hover { text-decoration: underline; }
 
-@media (max-width: 760px) {
+@media (max-width: 1080px) {
   .layout { grid-template-columns: 1fr; }
   footer.site .wrap { grid-template-columns: 1fr; }
   nav.main a { margin-left: 0; margin-right: 14px; }
