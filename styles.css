@@ -49,7 +49,7 @@ pre {
 }
 pre code { background: none; border: none; padding: 0; }
 
-.wrap { max-width: 1320px; margin: 0 auto; padding: 0 22px; }
+.wrap { margin: 0; padding: 0 22px; }
 
 /* Header */
 header.site { background: var(--box); border-bottom: 1px solid var(--border); }
