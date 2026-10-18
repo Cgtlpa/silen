@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silen Linux - packages</title>
+    <meta name="description" content="spk is the Silen Linux package manager. Browse the repository: kernels, firmware, drivers, desktops, terminals and everyday CLI tools.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="backgrnd">
+
+<div class="header">
+    <div>
+        <h1>Silen Linux</h1>
+        <h5>Simple, Reliable, Minimal</h5>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="get.html">Download</a>
+        <a class="now" href="packages.html">Packages</a>
+        <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+</div>
+
+<div class="main">
+
+    <div class="box" id="spk">
+        <h2>spk</h2>
+        <p><code>spk</code> is the Silen package manager - a single Rust binary, no daemon.
+        System packages install into <code>/</code>; leaf apps stay isolated under
+        <code>/spk_pkgs</code> with shims in <code>/usr/local/bin</code>. After the first
+        reboot, <code>silen-setup</code> installs your desktop, login manager and extras
+        through it.</p>
+<pre><code>spk get &lt;pkg...&gt;      # install (pulls dependencies too)
+spk list              # what is installed
+spk find &lt;pattern&gt;    # search installed packages
+spk update [pkg...]   # update installed packages
+spk rm &lt;pkg...&gt;       # remove
+spk self-update       # update spk itself</code></pre>
+    </div>
+
+    <div class="box" id="highlights">
+        <h2>Highlights</h2>
+        <p><strong>Kernels &amp; graphics</strong> - <code>linux-6.18</code>,
+        <code>linux-firmware</code>, <code>nvidia-drivers</code>, <code>mesa</code>,
+        the full xorg stack.</p>
+        <p><strong>Desktops &amp; Wayland</strong> - <code>instantwm</code>, <code>dwm</code>,
+        <code>niri</code>, <code>waybar</code>, <code>rofi</code>, <code>mako</code>.</p>
+        <p><strong>Login</strong> - <code>sddm</code>, <code>ly</code>,
+        <code>greetd</code> + <code>tuigreet</code>, <code>seatd</code>.</p>
+        <p><strong>Shells, editors &amp; terminals</strong> - <code>fish</code>, <code>zsh</code>,
+        <code>starship</code>; <code>vim</code>, <code>neovim</code>, <code>helix</code>;
+        <code>kitty</code>, <code>alacritty</code>, <code>tmux</code>.</p>
+        <p><strong>Everyday CLI</strong> - <code>fastfetch</code>, <code>htop</code>,
+        <code>btop</code>, <code>git</code>, <code>gh</code>, <code>lazygit</code>,
+        <code>eza</code>, <code>bat</code>, <code>ripgrep</code>, <code>fzf</code>.</p>
+        <p><strong>System &amp; network</strong> - <code>btrfs-progs</code>,
+        <code>cryptsetup</code>, <code>smartmontools</code>, <code>sensors</code>,
+        <code>efibootmgr</code>, <code>iwtui</code>, <code>openssh</code>,
+        <code>chrony</code>.</p>
+        <p class="muted">228 in total - <a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">browse the repository</a> on Hugging Face.</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <span>Silen Linux v1 - kernel 6.18.54 - AGPLv3</span>
+    <nav>
+        <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a>
+        <a href="https://huggingface.co/datasets/vgzz/silen-isos" target="_blank" rel="noopener">ISOs</a>
+        <a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">Package repo</a>
+    </nav>
+</div>
+
+</body>
+</html>

@@ -1,177 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download — Silen Linux</title>
-<meta name="description" content="Download Silen Linux ISO images: standard and NVIDIA variants.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silen Linux - download</title>
+    <meta name="description" content="Download Silen Linux ISO images: standard and NVIDIA variants, with sha256 checksums.">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="backgrnd">
 
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html">Silen <span>linux</span></a>
-    <nav class="main">
-      <a href="index.html">Home</a>
-      <a href="get.html">Download</a>
-      <a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">Packages</a>
-      <a href="https://github.com/Cgtlpa/Silen-Linux" target="_blank" rel="noopener">GitHub</a>
+<div class="header">
+    <div>
+        <h1>Silen Linux</h1>
+        <h5>Simple, Reliable, Minimal</h5>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a class="now" href="get.html">Download</a>
+        <a href="packages.html">Packages</a>
+        <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">GitHub</a>
     </nav>
-  </div>
-</header>
-
-<div class="wrap layout">
-  <aside class="toc">
-    <div class="box">
-      <h3>Contents</h3>
-      <div class="body">
-        <ul>
-          <li><a href="get.html#images">images</a></li>
-          <li><a href="get.html#mirrors">mirrors</a></li>
-          <li><a href="get.html#checksums">checksums</a></li>
-          <li><a href="get.html#requirements">requirements</a></li>
-          <li><a href="get.html#usb">write to usb</a></li>
-          <li><a href="get.html#first-boot">first boot</a></li>
-          <li><a href="get.html#first-packages">first packages</a></li>
-        </ul>
-      </div>
-    </div>
-  </aside>
-  <article>
-    <h1>download</h1>
-    <p>Current release: <strong>v1</strong>, kernel <strong>6.18.54</strong>.
-    ISOs are hosted on Hugging Face (GitHub caps files at 2&nbsp;GB).</p>
-
-    <h2 id="images">images</h2>
-    <table>
-      <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
-      <tr>
-        <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux.iso">Standard</a></td>
-        <td><code>silen-linux.iso</code> (1.8&nbsp;GB)</td>
-        <td>Recommended for most PCs. Open drivers with in-tree GPU firmware
-        (amdgpu, i915, xe, nouveau, radeon). NVIDIA cards work via nouveau;
-        proprietary drivers install later with <code>spk get nvidia-drivers</code>.</td>
-      </tr>
-      <tr>
-        <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-nvidia.iso">NVIDIA</a></td>
-        <td><code>silen-linux-nvidia.iso</code> (2.2&nbsp;GB)</td>
-        <td>Same base system. Installs the proprietary NVIDIA driver automatically
-        when an NVIDIA GPU is detected (skipped otherwise, nouveau stays active).</td>
-      </tr>
-    </table>
-
-    <h2 id="mirrors">mirrors</h2>
-    <table>
-      <tr><th>Mirror</th><th>Location</th><th>Access</th></tr>
-      <tr>
-        <td><a href="https://huggingface.co/datasets/vgzz/silen-isos" target="_blank" rel="noopener">huggingface.co</a></td>
-        <td>Global (CDN)</td>
-        <td>HTTPS, direct download</td>
-      </tr>
-    </table>
-    <p class="muted">ISOs live on Hugging Face because GitHub caps files at 2&nbsp;GB.</p>
-
-    <h2 id="checksums">checksums</h2>
-<pre><code>5ebf50fbc0597f415024a287c39465c213f0d930a0d67bfc1e026e0fc4d1b22a  silen-linux.iso
-d29f9d16e8799f3596264b72253bc22af5cff89545986909d86fd2aaad6ded46  silen-linux-nvidia.iso</code></pre>
-
-    <h2 id="requirements">requirements</h2>
-    <ul>
-      <li>64-bit (x86_64) PC with <strong>UEFI boot</strong> &mdash; legacy BIOS is refused by the installer.</li>
-      <li>A USB stick and a disk the installer may wipe (GPT: ESP + root).</li>
-      <li>Root filesystems: ext4, btrfs. No network needed for the base install.</li>
-    </ul>
-
-    <h2 id="usb">write to usb</h2>
-<pre><code># verify the checksum first (see Checksums above)
-sha256sum silen-linux.iso
-
-# write to USB (replace sdX with your stick!)
-sudo dd if=silen-linux.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
-    <p class="muted">Ventoy ISO-file boot is detected automatically.</p>
-
-    <h2 id="first-boot">first boot</h2>
-<pre><code>iwctl                  # configure Wi-Fi if needed
-spk get linux-firmware # wifi + device firmware
-spk get fastfetch      # needed by silenfetch below
-silenfetch             # logo + system info</code></pre>
-
-    <h2 id="first-packages">first packages</h2>
-    <p>Real packages from the repository (install with <code>spk get &lt;name&gt;</code>):</p>
-    <table>
-      <tr><th>Package</th><th>What it is</th></tr>
-      <tr><td><code>linux-firmware</code></td><td>Wi-Fi and device firmware collection</td></tr>
-      <tr><td><code>linux-6.18</code></td><td>Precompiled Silen kernel 6.18.54 with module tree</td></tr>
-      <tr><td><code>mesa</code></td><td>OpenGL/Vulkan/EGL stack with Intel/AMD drivers</td></tr>
-      <tr><td><code>nvidia-drivers</code></td><td>Proprietary NVIDIA driver installer with guided postinstall</td></tr>
-      <tr><td><code>instantwm</code></td><td>Hybrid tiling window manager (X11/Wayland)</td></tr>
-      <tr><td><code>sddm</code> / <code>ly</code> / <code>emptty</code> / <code>xdm</code></td><td>Login screens &mdash; graphical (sddm), TUI (ly), minimal CLI (emptty, xdm)</td></tr>
-      <tr><td><code>greetd</code> + <code>tuigreet</code></td><td>Login daemon with TUI greeter</td></tr>
-      <tr><td><code>alsa-utils</code></td><td>Audio tools: aplay, arecord, amixer</td></tr>
-      <tr><td><code>fastfetch</code> / <code>git</code> / <code>vim</code></td><td>System info, version control, editor</td></tr>
-      <tr><td><code>htop</code> / <code>tmux</code> / <code>openssh</code></td><td>Process viewer, terminal multiplexer, secure shell</td></tr>
-    </table>
-  </article>
-
-  <aside class="sidebar">
-    <div class="box">
-      <h3>Get Silen Linux</h3>
-      <div class="body">
-        <a class="btn-dl" href="https://huggingface.co/datasets/vgzz/silen-isos" target="_blank" rel="noopener">Browse ISO files</a>
-        <p class="muted" style="margin-bottom:0">ISOs + sha256 checksums.</p>
-      </div>
-    </div>
-    <div class="box">
-      <h3>Search</h3>
-      <div class="body">
-        <form class="search" action="https://duckduckgo.com/" method="get" onsubmit="this.q.value='site:cgtlpa.github.io/silen-website '+this.s.value;return true;">
-          <input type="hidden" name="q" value="">
-          <input type="text" name="s" placeholder="Search this site">
-          <button type="submit">Go</button>
-        </form>
-      </div>
-    </div>
-    <div class="box">
-      <h3>Community</h3>
-      <div class="body">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a></li>
-          <li><a href="https://github.com/Cgtlpa/Silen-Linux" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
-      </div>
-    </div>
-  </aside>
 </div>
 
-<footer class="site">
-  <div class="wrap">
-    <div>
-      <h4>Site</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="get.html">Download</a></li>
-      </ul>
+<div class="main">
+
+    <div class="box" id="images">
+        <h2>Images</h2>
+        <p class="muted">Release v1 - kernel 6.18.54 - x86_64, UEFI only - installs offline.</p>
+        <table>
+            <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
+            <tr>
+                <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux.iso">Standard</a></td>
+                <td><code>silen-linux.iso</code><br>1.8 GB</td>
+                <td>Open drivers with GPU firmware. NVIDIA runs on nouveau -
+                <code>spk get nvidia-drivers</code> adds the proprietary driver.</td>
+            </tr>
+            <tr>
+                <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-nvidia.iso">NVIDIA</a></td>
+                <td><code>silen-linux-nvidia.iso</code><br>2.2 GB</td>
+                <td>Same base; installs the proprietary driver automatically when an NVIDIA
+                GPU is detected.</td>
+            </tr>
+        </table>
+        <p class="muted">Hosted on Hugging Face - GitHub caps files at 2 GB.</p>
     </div>
-    <div>
-      <h4>Project</h4>
-      <ul>
-        <li><a href="https://huggingface.co/datasets/vgzz/silen-isos" target="_blank" rel="noopener">ISO files</a></li>
-        <li><a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a></li>
-      </ul>
+
+    <div class="box" id="coming">
+        <h2>Coming soon</h2>
+        <ul>
+            <li><strong>Silen Arch</strong> - Arch Linux base</li>
+            <li><strong>Silen Debian</strong> - Debian base</li>
+            <li><strong>Silen Void</strong> - Void Linux base</li>
+        </ul>
     </div>
-    <div>
-      <h4>Packages</h4>
-      <ul>
-        <li><a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">Repository</a></li>
-      </ul>
+
+    <div class="box" id="checksums">
+        <h2>Checksums</h2>
+<pre><code>5ebf50fbc0597f415024a287c39465c213f0d930a0d67bfc1e026e0fc4d1b22a  silen-linux.iso
+d29f9d16e8799f3596264b72253bc22af5cff89545986909d86fd2aaad6ded46  silen-linux-nvidia.iso</code></pre>
+        <p>Check with <code>sha256sum silen-linux.iso</code> before writing.</p>
     </div>
-  </div>
-</footer>
+
+    <div class="box" id="requirements">
+        <h2>Requirements</h2>
+        <ul>
+            <li>x86_64 PC, <strong>UEFI boot</strong> only - legacy BIOS is refused.</li>
+            <li>A USB stick and a disk the installer may wipe (GPT).</li>
+            <li>Root on ext4, btrfs or fat32; the base install is offline.</li>
+        </ul>
+    </div>
+
+    <div class="box" id="usb">
+        <h2>Write to USB</h2>
+<pre><code># replace sdX with your stick
+sudo dd if=silen-linux.iso of=/dev/sdX bs=4M status=progress oflag=sync</code></pre>
+        <p class="muted">Ventoy works too - the medium is found automatically.</p>
+    </div>
+
+    <div class="box" id="firstboot">
+        <h2>First boot</h2>
+<pre><code>iwctl        # connect to Wi-Fi
+silen-setup  # wizard: desktop, login manager, firmware, extras
+silenfetch   # logo + system info</code></pre>
+        <p><a href="packages.html">228 packages</a> in the repository.</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <span>Silen Linux v1 - kernel 6.18.54 - AGPLv3</span>
+    <nav>
+        <a href="https://github.com/Cgtlpa/SilenLinux" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.gg/WxbRRURcZ" target="_blank" rel="noopener">Discord</a>
+        <a href="https://huggingface.co/datasets/vgzz/silen-isos" target="_blank" rel="noopener">ISOs</a>
+        <a href="https://huggingface.co/datasets/vgzz/spk-pkgs/tree/main/packages" target="_blank" rel="noopener">Package repo</a>
+    </nav>
+</div>
 
 </body>
 </html>
