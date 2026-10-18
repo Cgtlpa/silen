@@ -6,7 +6,7 @@
 
 body.backgrnd {
     color: #d7c5a4;
-    background-color: #312819;
+    background-color: #191410;
     font-family: Verdana, "DejaVu Sans", Tahoma, sans-serif;
     font-size: 14px;
     line-height: 1.6;
@@ -55,7 +55,7 @@ li {
     letter-spacing: 2px;
 
     color: #d7c5a4;
-    background: #302820;
+    background: #262017;
 
     padding: 16px 24px;
     border: 1px solid #463b2c;
@@ -113,7 +113,7 @@ li {
 
 .box {
     color: #d7c5a4;
-    background: #302820;
+    background: #262017;
 
     padding: 16px 24px;
     border: 1px solid #463b2c;
@@ -127,13 +127,13 @@ code {
     font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
     font-size: 0.9em;
     color: #e0c99b;
-    background: #3a3122;
+    background: #2e261c;
     border: 1px solid #463b2c;
     padding: 0 4px;
 }
 
 pre {
-    background: #241d14;
+    background: #110d0a;
     border: 1px solid #463b2c;
     border-left: 3px solid #8f7a58;
     border-radius: 12px;
@@ -167,7 +167,7 @@ th, td {
 }
 
 th {
-    background: #3a3122;
+    background: #2e261c;
     color: #d7c5a4;
 }
 
@@ -212,7 +212,7 @@ th {
     flex-wrap: wrap;
 
     margin: 0 auto;
-    background: #241d14;
+    background: #110d0a;
 
     padding: 14px 24px;
     border: 1px solid #463b2c;
