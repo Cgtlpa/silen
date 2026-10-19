@@ -29,7 +29,7 @@
 
     <div class="box" id="images">
         <h2>Images</h2>
-        <p class="muted">Release v1 - x86_64. Standard and NVIDIA install offline; Silen Arch installs online.</p>
+        <p class="muted">Release v1 - kernel 6.18.54 - x86_64, UEFI only - installs offline.</p>
         <table>
             <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
             <tr>
@@ -44,22 +44,31 @@
                 <td>Same base; installs the proprietary driver automatically when an NVIDIA
                 GPU is detected.</td>
             </tr>
+        </table>
+        <p class="muted">Hosted on Hugging Face - GitHub caps files at 2 GB.</p>
+    </div>
+
+    <div class="box" id="bases">
+        <h2>Other bases</h2>
+        <table>
+            <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
             <tr>
                 <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-arch.iso">Silen Arch</a></td>
                 <td><code>silen-linux-arch.iso</code><br>1.6 GB</td>
                 <td>Arch Linux base. The installer builds a real Arch system online
                 (pacstrap); kernel and desktop are picked during install.</td>
             </tr>
+            <tr>
+                <td>Silen Debian</td>
+                <td class="muted">coming soon</td>
+                <td>Debian base</td>
+            </tr>
+            <tr>
+                <td>Silen Void</td>
+                <td class="muted">coming soon</td>
+                <td>Void Linux base</td>
+            </tr>
         </table>
-        <p class="muted">Hosted on Hugging Face - GitHub caps files at 2 GB.</p>
-    </div>
-
-    <div class="box" id="coming">
-        <h2>Coming soon</h2>
-        <ul>
-            <li><strong>Silen Debian</strong> - Debian base</li>
-            <li><strong>Silen Void</strong> - Void Linux base</li>
-        </ul>
     </div>
 
     <div class="box" id="checksums">
