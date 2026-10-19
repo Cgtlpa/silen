@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silen Linux - download</title>
-    <meta name="description" content="Download Silen Linux ISO images: standard and NVIDIA variants, with sha256 checksums.">
+    <meta name="description" content="Download Silen Linux ISO images: standard, NVIDIA and Arch variants, with sha256 checksums.">
     <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body class="backgrnd">
@@ -29,7 +29,7 @@
 
     <div class="box" id="images">
         <h2>Images</h2>
-        <p class="muted">Release v1 - kernel 6.18.54 - x86_64, UEFI only - installs offline.</p>
+        <p class="muted">Release v1 - x86_64. Standard and NVIDIA install offline; Silen Arch installs online.</p>
         <table>
             <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
             <tr>
@@ -44,6 +44,12 @@
                 <td>Same base; installs the proprietary driver automatically when an NVIDIA
                 GPU is detected.</td>
             </tr>
+            <tr>
+                <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-arch.iso">Silen Arch</a></td>
+                <td><code>silen-linux-arch.iso</code><br>1.6 GB</td>
+                <td>Arch Linux base. The installer builds a real Arch system online
+                (pacstrap); kernel and desktop are picked during install.</td>
+            </tr>
         </table>
         <p class="muted">Hosted on Hugging Face - GitHub caps files at 2 GB.</p>
     </div>
@@ -51,7 +57,6 @@
     <div class="box" id="coming">
         <h2>Coming soon</h2>
         <ul>
-            <li><strong>Silen Arch</strong> - Arch Linux base</li>
             <li><strong>Silen Debian</strong> - Debian base</li>
             <li><strong>Silen Void</strong> - Void Linux base</li>
         </ul>
@@ -60,14 +65,15 @@
     <div class="box" id="checksums">
         <h2>Checksums</h2>
 <pre><code>5ebf50fbc0597f415024a287c39465c213f0d930a0d67bfc1e026e0fc4d1b22a  silen-linux.iso
-d29f9d16e8799f3596264b72253bc22af5cff89545986909d86fd2aaad6ded46  silen-linux-nvidia.iso</code></pre>
+d29f9d16e8799f3596264b72253bc22af5cff89545986909d86fd2aaad6ded46  silen-linux-nvidia.iso
+8defeab2a75f886db4261e35d3d1b7b3c1dff78d543587403f8ec33352c40f32  silen-linux-arch.iso</code></pre>
         <p>Check with <code>sha256sum silen-linux.iso</code> before writing.</p>
     </div>
 
     <div class="box" id="requirements">
         <h2>Requirements</h2>
         <ul>
-            <li>x86_64 PC, <strong>UEFI boot</strong> only - legacy BIOS is refused.</li>
+            <li>x86_64 PC - main images need <strong>UEFI boot</strong>; Silen Arch also boots BIOS.</li>
             <li>A USB stick and a disk the installer may wipe (GPT).</li>
             <li>Root on ext4, btrfs or fat32; the base install is offline.</li>
         </ul>
