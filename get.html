@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silen Linux - download</title>
-    <meta name="description" content="Download Silen Linux ISO images: standard, NVIDIA and Arch variants, with sha256 checksums.">
+    <meta name="description" content="Download Silen Linux ISO images: standard, NVIDIA, Arch and Void variants, with sha256 checksums.">
     <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body class="backgrnd">
@@ -54,7 +54,7 @@
             <tr><th>Variant</th><th>File</th><th>Notes</th></tr>
             <tr>
                 <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-arch.iso">Silen Arch</a></td>
-                <td><code>silen-linux-arch.iso</code><br>1.6 GB</td>
+                <td><code>silen-linux-arch.iso</code><br>2.0 GB</td>
                 <td>Arch Linux base. The installer builds a real Arch system online
                 (pacstrap); kernel and desktop are picked during install.</td>
             </tr>
@@ -64,9 +64,10 @@
                 <td>Debian base</td>
             </tr>
             <tr>
-                <td>Silen Void</td>
-                <td class="muted">coming soon</td>
-                <td>Void Linux base</td>
+                <td><a href="https://huggingface.co/datasets/vgzz/silen-isos/resolve/main/silen-linux-void.iso">Silen Void</a></td>
+                <td><code>silen-linux-void.iso</code><br>1.4 GB</td>
+                <td>Void Linux base with runit and xbps. Guided installer; kernel
+                and desktop are picked during install.</td>
             </tr>
         </table>
     </div>
@@ -75,7 +76,8 @@
         <h2>Checksums</h2>
 <pre><code>5ebf50fbc0597f415024a287c39465c213f0d930a0d67bfc1e026e0fc4d1b22a  silen-linux.iso
 d29f9d16e8799f3596264b72253bc22af5cff89545986909d86fd2aaad6ded46  silen-linux-nvidia.iso
-8defeab2a75f886db4261e35d3d1b7b3c1dff78d543587403f8ec33352c40f32  silen-linux-arch.iso</code></pre>
+b9c90a6327be8b57cedf2703c7fcdade540832dd798bac40f8f49475199a3233  silen-linux-arch.iso
+1577e9f4458dd4e47f0ef74e26db37cc810caf959ae571e6f455eb51135d407b  silen-linux-void.iso</code></pre>
         <p>Check with <code>sha256sum silen-linux.iso</code> before writing.</p>
     </div>
 

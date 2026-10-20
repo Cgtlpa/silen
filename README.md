@@ -3,7 +3,7 @@
 Static website for **Silen Linux** - served at https://cgtlpa.github.io/silen/.
 
 - `index.html` - home
-- `get.html` - ISO downloads (standard, NVIDIA, Arch; Debian and Void bases coming soon)
+- `get.html` - ISO downloads (standard, NVIDIA, Arch and Void; Debian base coming soon)
 - `packages.html` - spk package manager + repository
 - `styles.css` - Bebas Neue + warm brown theme
 
